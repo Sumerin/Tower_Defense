@@ -14,28 +14,40 @@ public class Monster_AI : MonoBehaviour {
 
     #region Function
 
-    void find_nxt_node()
+    bool find_nxt_node()
     {
         nxt_Node = null;
-        nxt_Node = Path.transform.GetChild(node_number);
-        node_number++;
-        if(nxt_Node==null)//to nie dziala
+        try
         {
-            Debug.Log("czy to zadziała?");
+            nxt_Node = Path.transform.GetChild(node_number);
+        }   
+        catch(UnityException e)
+        {
+            Debug.Log("Catch: " +e);
             endOfWay();
+            return false;
         }
+        node_number++;
 
+        return true;
+
+    }
+
+
+
+    void SetMvDirection()
+    {
         kurs = nxt_Node.transform.position - this.transform.position;
 
 
-        float magni = Speed/kurs.magnitude;//regulowanie dlugosci vektora na 40
-        kurs= Vector3.Scale(kurs,new Vector3(magni,magni,magni));
+        float magni = Speed / kurs.magnitude;//regulowanie dlugosci vektora na 40
+        kurs = Vector3.Scale(kurs, new Vector3(magni, magni, magni));
 
 
         this.transform.rotation = Quaternion.LookRotation(kurs);
-       
-
     }
+
+
 
     void endOfWay()
     {
@@ -72,19 +84,24 @@ public class Monster_AI : MonoBehaviour {
         Path = GameObject.Find("Path");
         node_number = 0;
         find_nxt_node();
+        SetMvDirection();
 	}
 	
 	void Update () {
 
+        Vector3 direction=nxt_Node.transform.position - this.transform.position;
         
-        if( (nxt_Node.transform.position - this.transform.position).magnitude > kurs.magnitude*Time.deltaTime)
+        if( direction.magnitude > kurs.magnitude*Time.deltaTime)
         {
             this.transform.Translate(kurs *Time.deltaTime, Space.World);
             
         }
         else
         {
-            find_nxt_node();
+            if (find_nxt_node())
+            {
+                SetMvDirection();
+            }
         }
 	}
 }
