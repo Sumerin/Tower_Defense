@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour {
 		//Glass = transform.Find ("Glass").gameObject;
 		//Body = transform.Find ("Body").gameObject;
 		hands_pivot = transform.Find ("Hands_pivot").gameObject;
-		Monster_pivot= transform.parent.gameObject;
+		Monster_pivot= transform.gameObject;
 
 	}
 	
@@ -31,7 +31,7 @@ public class Monster : MonoBehaviour {
 
 		Monster_pivot.transform.Rotate (0, rotation, rotation);
 		hands_pivot.transform.Rotate (-rotation*2, 0, 0);
-		//Monster_pivot.transform.Translate(new Vector3(0,0,1)*Time.deltaTime,Space.World);
+		Monster_pivot.transform.Translate(new Vector3(0,0,1)*Time.deltaTime,Space.World);
 
 	}
 
