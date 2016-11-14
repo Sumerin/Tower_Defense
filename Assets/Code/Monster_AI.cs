@@ -91,7 +91,7 @@ public class Monster_AI : MonoBehaviour {
            this.transform.Translate(kurs *Time.deltaTime, Space.World);// przesuwamy sie panowie
             
 
-			this.transform.Translate (kurs * Time.deltaTime, Space.World);
+			//this.transform.Translate (kurs * Time.deltaTime, Space.World);
 			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(kurs), Time.deltaTime * 4);
 
         }

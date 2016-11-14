@@ -2156,9 +2156,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4485b357bc324aa48ba057a490c93a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextWave: 5
-  timeBeetwenSpawn: 1
-  monsterPerSpawn: 2
+  timeToNextWave: 1
+  timeBeetwenSpawn: 0
+  monsterPerSpawn: 10
   monster: {fileID: 1000011648133108, guid: 74e8e6795df79424cac064b8989535a7, type: 2}
 --- !u!23 &1596303720
 MeshRenderer:
