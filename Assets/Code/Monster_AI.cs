@@ -27,7 +27,7 @@ public class Monster_AI : MonoBehaviour {
             endOfWay();
             return false;
         }
-        node_number++;
+		node_number++;
 
         return true;
 
@@ -39,12 +39,9 @@ public class Monster_AI : MonoBehaviour {
     {
         kurs = nxt_Node.transform.position - this.transform.position;
 
-
         float magni = Speed / kurs.magnitude;//regulowanie dlugosci vektora na 40
         kurs = Vector3.Scale(kurs, new Vector3(magni, magni, magni));
-
-
-        this.transform.rotation = Quaternion.LookRotation(kurs);
+		//this.transform.rotation = Quaternion.LookRotation(kurs);
     }
 
 
@@ -62,10 +59,8 @@ public class Monster_AI : MonoBehaviour {
         Vector3[] tolerence=new Vector3[2];
         tolerence[0]=nxt_Node.position-new Vector3(5,5,5);
         tolerence[1]=nxt_Node.position+new Vector3(5,5,5);
-        if(
-            this.transform.position.x>tolerence[0].x && this.transform.position.y>tolerence[0].y && this.transform.position.z>tolerence[0].z &&this.transform.position.x<tolerence[1].x &&this.transform.position.y<tolerence[1].y &&this.transform.position.z<tolerence[1].z
-            )
-        {
+        if(this.transform.position.x>tolerence[0].x && this.transform.position.y>tolerence[0].y && this.transform.position.z>tolerence[0].z 
+			&& this.transform.position.x<tolerence[1].x &&this.transform.position.y<tolerence[1].y &&this.transform.position.z<tolerence[1].z) {
             return true;
         }
         return false;
@@ -91,10 +86,14 @@ public class Monster_AI : MonoBehaviour {
 
         Vector3 direction=nxt_Node.transform.position - this.transform.position;// sprawdza ile jeszcze zostalo do przebycia
         
-        if( direction.magnitude > kurs.magnitude*Time.deltaTime)
+        if( direction.magnitude >= kurs.magnitude*Time.deltaTime)
         {
-            this.transform.Translate(kurs *Time.deltaTime, Space.World);// przesuwamy sie panowie
+           this.transform.Translate(kurs *Time.deltaTime, Space.World);// przesuwamy sie panowie
             
+
+			this.transform.Translate (kurs * Time.deltaTime, Space.World);
+			this.transform.rotation = Quaternion.Lerp(this.transform.rotation, Quaternion.LookRotation(kurs), Time.deltaTime * 4);
+
         }
         else
         {
@@ -104,4 +103,5 @@ public class Monster_AI : MonoBehaviour {
             }
         }
 	}
+
 }
