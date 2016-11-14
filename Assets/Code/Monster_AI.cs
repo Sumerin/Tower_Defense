@@ -21,7 +21,7 @@ public class Monster_AI : MonoBehaviour {
         {
             nxt_Node = Path.transform.GetChild(node_number);
         }   
-        catch(UnityException e)
+        catch(UnityException e)// wyrzuca wyjatek jesli nie znaleziono kolejnej kropki
         {
             Debug.Log("Catch: " +e);
             endOfWay();
@@ -89,11 +89,11 @@ public class Monster_AI : MonoBehaviour {
 	
 	void Update () {
 
-        Vector3 direction=nxt_Node.transform.position - this.transform.position;
+        Vector3 direction=nxt_Node.transform.position - this.transform.position;// sprawdza ile jeszcze zostalo do przebycia
         
         if( direction.magnitude > kurs.magnitude*Time.deltaTime)
         {
-            this.transform.Translate(kurs *Time.deltaTime, Space.World);
+            this.transform.Translate(kurs *Time.deltaTime, Space.World);// przesuwamy sie panowie
             
         }
         else
