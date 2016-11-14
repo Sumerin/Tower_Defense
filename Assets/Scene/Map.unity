@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44692558, g: 0.49678743, b: 0.57508624, a: 1}
+  m_IndirectSpecularColor: {r: 0.44692528, g: 0.4967872, b: 0.5750856, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2111,13 +2111,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1596303718}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66285e209708c994386b77ff34147dce, type: 3}
+  m_Script: {fileID: 11500000, guid: 4485b357bc324aa48ba057a490c93a8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToNextWave: 5
-  timeBeetwenSpawn: 1
-  monsterPerSpawn: 2
-  monster: {fileID: 1000013200985466, guid: d49ee247c6cac5a438721d0fb8ccdadd, type: 2}
+  timeToNextWave: 2
+  timeBeetwenSpawn: 4
+  monsterPerSpawn: 5
+  monster: {fileID: 1000011648133108, guid: 74e8e6795df79424cac064b8989535a7, type: 2}
 --- !u!33 &1596303721
 MeshFilter:
   m_ObjectHideFlags: 0
