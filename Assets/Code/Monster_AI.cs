@@ -47,12 +47,14 @@ public class Monster_AI : MonoBehaviour {
 		if (health <= 0) {
 			Debug.Log("Killed");
             GameManager.instance.score = 20;
+            GameManager.instance.money = 20;
 			Destroy(gameObject);
 		}
 	}
 
 	void endOfWay() {
 		Debug.Log("Koniec sciezki");
+        GameManager.instance.health = -10;//odejmowanie zycia
 		Destroy(gameObject);
 		//TODO: co sie dzieje po dojsciu do końca. 
 	}

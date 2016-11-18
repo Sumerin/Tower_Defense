@@ -70,11 +70,10 @@ public class GameManager : MonoBehaviour
         }
         set
         {
-            if (value > 0)
-            {
+           
                 _money += value;
                 Print();
-            }
+          
         }
     }
     public int health
@@ -104,6 +103,7 @@ public class GameManager : MonoBehaviour
         score_text.text = "Score: " + _score;
         money_text.text = "Money: " + _money;
         health_text.text = "Health: " + _health;
+        //TODO: TIme to wave
     }
 
     private void EndGame()
